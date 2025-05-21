@@ -1,0 +1,236 @@
+/* Reset some defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  background: #f5f7fa;
+  color: #2d2d2d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  height: 90vh;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  padding: 20px 30px;
+  border-bottom: 1px solid #e1e4e8;
+  display: flex;
+  align-items: center;
+  background: #24292e;
+  color: #fff;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Chat Box */
+.chat-box {
+  flex: 1;
+  padding: 20px 30px;
+  overflow-y: auto;
+  background: #fafbfc;
+  scroll-behavior: smooth;
+}
+
+/* Messages */
+.message {
+  max-width: 80%;
+  margin-bottom: 16px;
+  padding: 14px 18px;
+  border-radius: 18px;
+  position: relative;
+  line-height: 1.4;
+  font-size: 1rem;
+  word-wrap: break-word;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.message .content {
+  white-space: pre-wrap;
+}
+
+/* User messages */
+.message.user {
+  margin-left: auto;
+  background: #0366d6;
+  color: white;
+  border-bottom-right-radius: 4px;
+  animation: slideInRight 0.3s ease forwards;
+}
+
+/* Bot messages */
+.message.bot {
+  margin-right: auto;
+  background: #e1e4e8;
+  color: #24292e;
+  border-bottom-left-radius: 4px;
+  animation: slideInLeft 0.3s ease forwards;
+}
+
+/* Typing animation */
+.message.typing::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 8px;
+  background: #888;
+  border-radius: 50%;
+  animation: blink 1.4s infinite;
+  vertical-align: middle;
+}
+
+.message.typing::after:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.message.typing::after:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Code blocks */
+pre {
+  background: #2d2d2d;
+  color: #f8f8f2;
+  padding: 15px;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  margin: 0;
+  font-family: 'Fira Code', Consolas, Monaco, 'Courier New', monospace;
+  line-height: 1.5;
+}
+
+/* Footer (input area) */
+.input-area {
+  display: flex;
+  padding: 15px 20px;
+  border-top: 1px solid #e1e4e8;
+  background: #fff;
+  gap: 10px;
+  align-items: flex-end;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+textarea#user-input {
+  flex-grow: 1;
+  resize: none;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 12px 16px;
+  font-size: 1rem;
+  min-height: 38px;
+  max-height: 150px;
+  line-height: 1.4;
+  transition: border-color 0.2s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+textarea#user-input:focus {
+  border-color: #0366d6;
+  outline: none;
+  box-shadow: 0 0 5px rgba(3, 102, 214, 0.5);
+}
+
+button#send-btn {
+  background: #0366d6;
+  border: none;
+  color: white;
+  font-size: 1.3rem;
+  padding: 12px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+button#send-btn:hover {
+  background: #024ea2;
+}
+
+button#send-btn:active {
+  background: #013b82;
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0.3; }
+  40% { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    height: 95vh;
+    border-radius: 0;
+  }
+
+  .header {
+    padding: 15px;
+  }
+
+  .chat-box {
+    padding: 15px;
+  }
+
+  .input-area {
+    padding: 10px 15px;
+  }
+}
