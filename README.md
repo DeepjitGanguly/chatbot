@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README.md for Customized Chatbot for Data Science and AI Learning
 
 ## Overview
@@ -50,3 +51,6 @@ Follow these steps to set up the chatbot:
 ## Usage
 
 Once the chatbot is running, you can interact with it through the command line. You will be prompted to enter your Groq API key and questions related to Data Science and AI. The chatbot will provide responses based on its training and memory of previous interactions.
+=======
+# chatbot
+>>>>>>> a4c6545c2afcd27f107a4691045c44964a0f66d6
